@@ -1,10 +1,7 @@
-.DS_Store
-.idea/
-angelscript/
-cmake-build-debug/
-bsnes/out/
-*.mov
-asm/*.smc
-asm/*.srm
-asm/*.bak
-asm/*.bsz
+# Build artifacts
+build*.log
+*.o
+*.d
+*.so
+out/
+obj/

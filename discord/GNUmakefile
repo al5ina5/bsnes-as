@@ -23,8 +23,8 @@ endif
 ifeq ($(discord),false)
   discord.flags += -DDISCORD_DISABLE=1
   discord.options :=
-endif
-
+  discord.objects :=
+else
 discord.objects := achievement_manager \
                    activity_manager \
                    application_manager \
@@ -40,6 +40,7 @@ discord.objects := achievement_manager \
                    user_manager \
                    voice_manager
 discord.objects := $(discord.objects:%=obj/%.o)
+endif
 
 obj/achievement_manager.o: $(discord.path)/achievement_manager.cpp
 obj/activity_manager.o: $(discord.path)/activity_manager.cpp

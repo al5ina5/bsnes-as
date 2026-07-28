@@ -4,7 +4,7 @@ build := performance_debug
 openmp := true
 local := true
 script_profiler := false
-discord := true
+discord ?= true
 flags += -I. -I..
 
 # in order for this to work, obj/lzma.o must be omitted or bsnes will hang on startup.

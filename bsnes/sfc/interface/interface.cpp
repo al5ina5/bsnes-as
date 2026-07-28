@@ -17,7 +17,9 @@
 
 #include "picojson.h"
 
+#ifndef DISCORD_DISABLE
 #include <discord.h>
+#endif
 
 namespace SuperFamicom {
 

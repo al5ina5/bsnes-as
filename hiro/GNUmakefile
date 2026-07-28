@@ -41,8 +41,8 @@ ifneq ($(filter $(platform),linux bsd),)
   endif
 
   ifeq ($(hiro),gtk3)
-    hiro.flags   = $(flags.cpp) -DHIRO_GTK=3 $(shell pkg-config --cflags gtk+-3.0 gtksourceview-3.0) -Wno-deprecated-declarations
-    hiro.options = -L/usr/local/lib -lX11 $(shell pkg-config --libs gtk+-3.0 gtksourceview-3.0)
+      hiro.flags   = $(flags.cpp) -DHIRO_GTK=3 $(shell pkg-config --cflags gtk+-3.0 gtksourceview-3.0) -Wno-deprecated-declarations
+      hiro.options = -L/usr/local/lib -L$(PREFIX)/usr/lib/x86_64-linux-gnu -L$(PREFIX)/lib/x86_64-linux-gnu -lX11 $(shell pkg-config --libs gtk+-3.0 gtksourceview-3.0) -lxml2
   endif
 
   ifeq ($(hiro),qt4)

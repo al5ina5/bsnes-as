@@ -29,6 +29,8 @@ ruby.flags += $(if $(findstring input.sdl,$(ruby)),$(shell sdl2-config --cflags)
 
 ruby.options :=
 
+ruby.options += $(if $(PREFIX),-L$(PREFIX)/usr/lib/x86_64-linux-gnu -L$(PREFIX)/lib/x86_64-linux-gnu)
+
 ruby.options += $(if $(findstring video.cgl,$(ruby)),-framework OpenGL)
 ruby.options += $(if $(findstring video.direct3d,$(ruby)),-ld3d9)
 ruby.options += $(if $(findstring video.directdraw,$(ruby)),-lddraw)

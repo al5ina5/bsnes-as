@@ -311,7 +311,9 @@ namespace ScriptInterface {
   #include "script-gui.cpp"
   #include "script-bml.cpp"
   #include "script-json.cpp"
+#ifndef DISCORD_DISABLE
   #include "script-discord.cpp"
+#endif
   #include "script-menu.cpp"
 
 };
@@ -603,7 +605,9 @@ auto Interface::registerScriptDefs(::Script::Platform *scriptPlatform) -> void {
     }));
   }
 
+#ifndef DISCORD_DISABLE
   ScriptInterface::DiscordInterface::Register(e);
+  #endif
 
   ScriptInterface::RegisterMenu(e);
 
@@ -722,7 +726,9 @@ auto Interface::unloadScript() -> void {
   // unload script:
   platform->scriptInvokeFunction(script.funcs.unload);
 
+#ifndef DISCORD_DISABLE
   ScriptInterface::DiscordInterface::reset();
+  #endif
 
   platform->scriptProfilerDisable(platform->scriptPrimaryContext());
 

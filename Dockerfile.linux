@@ -1,0 +1,26 @@
+# bsnes-as Linux build environment (Ubuntu 22.04-based, GTK3)
+FROM ubuntu:22.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    ca-certificates \
+    git \
+    make \
+    pkg-config \
+    libgtk-3-dev \
+    libgtksourceview-3.0-dev \
+    libsdl2-dev \
+    libx11-dev \
+    libxext-dev \
+    libxv-dev \
+    libgl1-mesa-dev \
+    libasound2-dev \
+    libpulse-dev \
+    libopenal-dev \
+    libao-dev \
+    libudev-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /build
